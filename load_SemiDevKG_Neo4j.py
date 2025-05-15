@@ -2,8 +2,7 @@ from neo4j import GraphDatabase
 
 def write_SemiDevKG_jsonl(driver, file):
     file_path  = f"\"file:///{file}\""
-    # print(file_path)
-    load_file_query = f'''CALL apoc.load.json({file_path}) YIELD value '''
+    load_file_query = f'''CALL apoc.load.csv({file_path}) YIELD value '''
     
     with driver.session() as session:
         result = session.run(load_file_query) 
@@ -55,7 +54,7 @@ if __name__ == "__main__":
     password = '******'
     my_driver = GraphDatabase.driver(URI, auth=(usr, password))
     
-    file = "SemiDevKG.json"
+    file = "SemiDevKG.csv"
     write_SemiDevKG_jsonl(my_driver, file)
     try:
         create_index(my_driver)
