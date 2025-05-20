@@ -4,7 +4,7 @@ Semiconductor Device Knowledge Graph
 ## Introduction of files
 - data:
   * SemiDevKG.csv
-  * SemiDevKG.json
+  * SemiDevKG.cypher
   * SemiDevKG.dump
   
 - llamaNERprompting.py: the script for extracting electronic device entity mentioned and their properties in the abstracts
